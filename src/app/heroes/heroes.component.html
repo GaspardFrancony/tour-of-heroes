@@ -11,9 +11,9 @@
 </div>
 
 <ul class="heroes">
-  <li *ngFor="let hero of heroes">
+  <li *ngFor="let hero of heroes; index as i; first as isFirst">
     <a routerLink="/detail/{{hero.id}}">
-      <span class="badge">{{hero.id}}</span> {{hero.name}}
+      <span id="hero{{i}}" class="badge" [style.font-weight]="isFirst ? 'bold' : ''">{{hero.id}}</span>{{hero.name}}
     </a>
     <button class="delete" title="delete hero" 
     (click)="delete(hero)">x</button>
